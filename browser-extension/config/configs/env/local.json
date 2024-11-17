@@ -1,6 +1,6 @@
 {
-  "WEB_URL": "http://localhost:3000",
-  "SESSIONS_URL": "https://localhost:3000/sessions",
+  "WEB_URL": "https://shrequestly.github.io",
+  "SESSIONS_URL": "https://shrequestly.github.io/sessions",
   "OTHER_WEB_URLS": ["https://beta.requestly.io", "https://beta.requestly.com", "https://beta.sessionbear.com"],
   "logLevel": "debug"
 }

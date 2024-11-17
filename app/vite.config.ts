@@ -81,6 +81,7 @@ const config = async ({ mode }) => {
       target: "esnext",
     },
     server: {
+      host: "0.0.0.0",
       open: true,
       port: 3000,
       fs: {
