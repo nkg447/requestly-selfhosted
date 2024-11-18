@@ -29,7 +29,7 @@ export const showTeamsCard = () => {
   return false;
 };
 
-export const skipAuthPopover = () => {
+export const shouldShowAuthPopover = () => {
   return true;
 };
 

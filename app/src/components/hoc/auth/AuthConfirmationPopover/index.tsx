@@ -12,7 +12,7 @@ import {
 
 import { TooltipPlacement } from "antd/lib/tooltip";
 import "./popover.scss";
-import { skipAuthPopover } from "SelfHostedUtils";
+import { shouldShowAuthPopover } from "SelfHostedUtils";
 
 interface Props {
   title: string;
@@ -73,7 +73,7 @@ export const AuthConfirmationPopover: React.FC<Props> = ({
       okButtonProps={{ style: { margin: 0 } }}
       cancelText={""}
       icon={null}
-      disabled={user?.details?.isLoggedIn || disabled || skipAuthPopover()}
+      disabled={user?.details?.isLoggedIn || disabled || shouldShowAuthPopover()}
       overlayClassName="auth-confirmation-popover"
       onConfirm={() => {
         flag.current = true;

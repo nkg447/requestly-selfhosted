@@ -3,7 +3,7 @@ import { Row } from "antd";
 import { AuthConfirmationPopover } from "components/hoc/auth/AuthConfirmationPopover";
 import { PremiumIcon } from "components/common/PremiumIcon";
 import { RQButton, RQButtonProps } from "lib/design-system-v2/components";
-import { skipAuthPopover } from "SelfHostedUtils";
+import { shouldShowAuthPopover } from "SelfHostedUtils";
 
 interface Props {
   icon: React.ReactNode;
@@ -54,7 +54,7 @@ const AuthPopoverButton: React.FC<Props> = ({
             onClickHandler();
             return;
           }
-          if (hasPopconfirm && !skipAuthPopover()) {
+          if (hasPopconfirm && !shouldShowAuthPopover()) {
             isLoggedIn && onClickHandler();
           } else {
             onClickHandler();
