@@ -29,6 +29,10 @@ export const showTeamsCard = () => {
   return false;
 };
 
+export const skipAuthPopover = () => {
+  return true;
+};
+
 export const referOriginalRequestly = () => {
   return (
     <Col className="homepage-primary-card homepage-incentives-card">

@@ -41,6 +41,7 @@ import { getCurrentlyActiveWorkspace, getIsWorkspaceMode } from "store/features/
 import { redirectToTeam } from "utils/RedirectionUtils";
 import { useIsRedirectFromCreateRulesRoute } from "../../hooks/useIsRedirectFromCreateRulesRoute";
 import "./gettingStarted.scss";
+import { skipAuthPopover } from "SelfHostedUtils";
 
 const { PATHS } = APP_CONSTANTS;
 
@@ -240,7 +241,7 @@ export const GettingStarted: React.FC = () => {
                 onClick={() => {
                   trackRulesEmptyStateClicked("import_json");
                   trackUploadRulesButtonClicked(SOURCE.GETTING_STARTED);
-                  user?.details?.isLoggedIn && handleUploadRulesClick();
+                  (user?.details?.isLoggedIn || skipAuthPopover()) && handleUploadRulesClick();
                 }}
               >
                 Upload rules

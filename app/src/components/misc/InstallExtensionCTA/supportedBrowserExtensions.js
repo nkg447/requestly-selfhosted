@@ -2,7 +2,7 @@ export const supportedBrowserExtensions = [
   {
     name: "Chrome",
     iconURL: "https://img.icons8.com/fluent/128/000000/chrome.png",
-    downloadURL: "https://chrome.google.com/webstore/detail/requestly-redirect-url-mo/mdnleldcmiljblolnjhpnblkcekpdkpa",
+    downloadURL: "https://github.com/nkg447/requestly-selfhosted/releases/tag/extension",
     title: "Chrome Extension",
     alt: `Requestly for chrome |  proxyman alternatives | mocky.io alternative | Fiddler Alternative | charles proxy alternative`,
   },
