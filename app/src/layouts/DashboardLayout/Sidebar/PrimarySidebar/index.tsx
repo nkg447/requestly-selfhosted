@@ -27,6 +27,7 @@ import { SidebarToggleButton } from "componentsV2/SecondarySidebar/components/Si
 import APP_CONSTANTS from "config/constants";
 import { RQBadge } from "lib/design-system/components/RQBadge";
 import "./PrimarySidebar.css";
+import { showInviteButton, updateSidebarItems } from "SelfHostedUtils";
 
 export const PrimarySidebar: React.FC = () => {
   const { pathname } = useLocation();
@@ -49,7 +50,7 @@ export const PrimarySidebar: React.FC = () => {
   const sidebarItems: PrimarySidebarItem[] = useMemo(() => {
     const showTooltipForSessionIcon = appMode === GLOBAL_CONSTANTS.APP_MODES.DESKTOP && isSavingNetworkSession;
 
-    const items = [
+    const items = updateSidebarItems([
       {
         id: 0,
         title: "Home",
@@ -130,7 +131,7 @@ export const PrimarySidebar: React.FC = () => {
         display: true,
         activeColor: "var(--api-client)",
       },
-    ];
+    ]);
 
     if (isDesktopSessionsCompatible) {
       items[4] = {
@@ -168,7 +169,7 @@ export const PrimarySidebar: React.FC = () => {
       <div className="primary-sidebar-bottom-btns">
         {isIncentivizationEnabled ? <CreditsButton /> : null}
         {isSlackConnectFeatureEnabled && isSlackInviteVisible && <JoinSlackButton />}
-        <InviteButton />
+        {showInviteButton() ? <InviteButton /> : null}
       </div>
     </div>
   );

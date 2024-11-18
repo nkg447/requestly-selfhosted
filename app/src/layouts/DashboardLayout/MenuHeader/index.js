@@ -93,7 +93,7 @@ const MenuHeader = () => {
                     <GitHubButton
                       style={{ display: "flex" }}
                       className="github-star-button"
-                      href="https://github.com/requestly/requestly"
+                      href="https://github.com/nkg447/requestly-selfhosted"
                       data-color-scheme="dark_dimmed"
                       data-text="Star"
                       data-show-count="true"

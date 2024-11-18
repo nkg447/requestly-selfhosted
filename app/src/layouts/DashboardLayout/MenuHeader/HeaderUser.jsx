@@ -22,6 +22,7 @@ import { trackUpgradeClicked } from "modules/analytics/events/misc/monetizationE
 import { incentivizationActions } from "store/features/incentivization/slice";
 import { getAppFlavour } from "utils/AppUtils";
 import { CONSTANTS as GLOBAL_CONSTANTS } from "@requestly/requestly-core";
+import { shouldOverrideHideUserDropdown } from "SelfHostedUtils";
 
 export default function HeaderUser() {
   const navigate = useNavigate();
@@ -45,7 +46,9 @@ export default function HeaderUser() {
 
   useEffect(() => {
     setHideUserDropdown(
-      Object.values(APP_CONSTANTS.PATHS.AUTH).some((AUTH_PATH) => location.pathname === AUTH_PATH.ABSOLUTE)
+      shouldOverrideHideUserDropdown()
+        ? true // always HideUserDropdown
+        : Object.values(APP_CONSTANTS.PATHS.AUTH).some((AUTH_PATH) => location.pathname === AUTH_PATH.ABSOLUTE)
     );
   }, [location]);
 

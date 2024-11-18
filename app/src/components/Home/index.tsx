@@ -9,6 +9,7 @@ import { MocksCard } from "./components/MocksCard";
 import { IncentivesCard } from "./components/IncentivesCard/IncentivesCard";
 import { useIsIncentivizationEnabled } from "features/incentivization/hooks";
 import "./home.scss";
+import { referOriginalRequestly, showMockServerSideBarOption, showTeamsCard } from "SelfHostedUtils";
 
 export const Home: React.FC = () => {
   const isIncentivizationEnabled = useIsIncentivizationEnabled();
@@ -21,20 +22,25 @@ export const Home: React.FC = () => {
             <IncentivesCard />
           </Col>
         )}
+        {referOriginalRequestly()}
 
         <Row className="homepage-primary-cards-wrapper">
           <Col className="homepage-primary-card" xs={24} md={24} lg={12}>
             <RulesCard />
           </Col>
-          <Col className="homepage-primary-card" xs={24} md={24} lg={12}>
-            <MocksCard />
-          </Col>
+          {showMockServerSideBarOption() ? (
+            <Col className="homepage-primary-card" xs={24} md={24} lg={12}>
+              <MocksCard />
+            </Col>
+          ) : null}
         </Row>
         <Templates />
         <Row className="homepage-bottom-section" wrap={false}>
-          <Col xs={24} md={24} lg={12} className="homepage-teams-card homepage-primary-card" style={{ padding: 0 }}>
-            <TeamsCard />
-          </Col>
+          {showTeamsCard() ? (
+            <Col xs={24} md={24} lg={12} className="homepage-teams-card homepage-primary-card" style={{ padding: 0 }}>
+              <TeamsCard />
+            </Col>
+          ) : null}
           <Col xs={24} md={24} lg={6} className="homepage-help-card homepage-primary-card">
             <HelpCard />
           </Col>
