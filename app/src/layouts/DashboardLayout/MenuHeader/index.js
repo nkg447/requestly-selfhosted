@@ -24,6 +24,7 @@ import { PlanExpiredBadge } from "./PlanExpiredBadge";
 import { trackAskAIClicked } from "features/requestBot";
 import BotIcon from "assets/icons/bot.svg?react";
 import "./MenuHeader.css";
+import { importExportButtons } from "SelfHostedUtils";
 
 const { Header } = Layout;
 const { PATHS } = APP_CONSTANTS;
@@ -88,6 +89,7 @@ const MenuHeader = () => {
                     <PlanExpiredBadge />
                   </div>
                 ) : null}
+                {importExportButtons()}
                 <Col className="hidden-on-small-screen">
                   <span className="github-star-button" onClick={() => trackHeaderClicked("github_star_button")}>
                     <GitHubButton
